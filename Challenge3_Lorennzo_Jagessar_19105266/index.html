@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/main.css">
+        <link href='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css' rel='stylesheet'/> <!--css voor de Mapbox zelf-->
+        <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css" type="text/css"> <!--css voor de geocoder van Mapbox-->
+        <script src="js/main.js" defer></script>
+        <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js"></script> <!--script nodig voor de geocoder van Mapbox-->
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js'></script> <!--script nodig voor mapbox zelf-->
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script> <!--script nodig voor de geocoder van Mapbox-->
+        <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> <!--script nodig voor de geocoder van Mapbox-->
+        <title>Return Dashboard</title>
+    </head>
+    <body>
+        <div class="container"> 
+            <div class="headerlogo">
+                <header>
+                    <img class="whitelogo" src="pictures/spaceX_Logo_White.png" alt="foto van witte logo van spacex">
+                </header>
+            </div>
+            <div class="location">
+                <h1>Location</h1>
+                <h2>Look for places to land</h2>
+                <div id="map"></div> <!--div speciaal voor de Mapbox-->
+            </div>
+            <div class="weather">
+                <h1>Weather</h1>
+                <h2>How's the weather?</h2>
+                <div id="weatherstatus"></div> <!--div speciaal voor de weersgegevens-->
+                <label for="place">City name</label>
+                <input type="text" name="place" id="place" placeholder="type the city name here"> <!--hier kan je in schrijven-->
+                <input type="button" id="weatherupdate" value="Show me the weather" onclick="weatherapi()"> <!-- onclick toepassen wanneer je een waarde hebt ingevuld-->
+            </div>
+            <div class="other">
+                <h1>Quote</h1>
+                <h2>Some inspirational quotes</h2>
+                <div id="quote"></div> <!--div speciaal voor de quote-->
+                <div id="character"></div> <!--div speciaal voor de karakter naam-->
+                <div id="anime"></div> <!--div speciaal voor de anime serie-->
+                <button onclick="quoteapi()">Get another quote</button> <!--button met een onclick toepassen om ervoor te zorgen dat je een andere quote kan kiezen-->
+            </div>
+        </div>   
+    </body>
+</html>

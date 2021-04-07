@@ -1,0 +1,238 @@
+/*GENERAL*/
+
+/*font face aanmaken zodat je eigen lettertypen kan gebruiken*/
+@font-face {
+    font-family: lexend;
+    src: url(../fonts/Lexend/Lexend-Regular.ttf);
+}
+
+@font-face {
+    font-family: lexendBold;
+    src: url(../fonts/Lexend/Lexend-Medium.ttf);
+}
+
+/*letterype gebruiken voor elk element*/
+*{
+    font-family: lexend;
+}
+
+
+html, body{
+    height: 100%; /*hoogte 100% zodat de achtergrond ook 100% is*/
+    margin: 0; /*margin op 0 zodat de onnodige rand verdwijnt*/
+}
+
+/*BACKGROUND*/
+body{
+    background-image: url(../pictures/nasa_earth_wallpaper_giant.jpg);
+    background-repeat: no-repeat; /*dat er maar een wallpaper*/
+    background-attachment: fixed; /*blijft staan op zn plek*/
+    height: 100%; /*vult heel de pagina*/
+    background-position: center; /*centreren*/
+    background-size: cover; /*vult heel de pagina*/
+}
+/*-------------------------*/
+
+/*LOGO*/
+.whitelogo{
+    width: 50%;
+    /*auto zodat die netjes in het midden staat*/
+    margin-left: auto;
+    margin-right: auto;
+}
+/*-------------------------*/
+
+/*HEADER*/
+header{
+    text-align: center; /*afbeelding centreren*/
+    /*padding zodat die niet tegen de rand aan zit*/
+    padding-top: 20px; 
+    padding-bottom: 20px;
+}
+/*-------------------------*/
+
+/*KOLOMMEN*/
+.location,.other,.weather{
+    background-color: rgba(255, 255, 255, 0.8); /*gebruikt om alleen de achtergrond transparanter te maken*/
+    border-radius: 5px;
+    text-align: center; /*tekst in de boxen centreren*/
+    margin-bottom: 10px; 
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+h1{
+    font-family: lexendBold; /*andere soort lettertype gebruikt*/
+}
+/*-------------------------*/
+
+/*GRID BENAMING*/
+.headerlogo{
+    grid-area: header;
+}
+
+.location{
+    grid-area: loc;
+}
+
+.weather{
+    grid-area: weer;
+}
+
+.other{
+    grid-area: other;
+}
+/*-------------------------*/
+
+
+/*MAPBOX API*/
+#map{
+    width: 90%;
+    height: 400px; /*een specifieke hoogte ingesteld zodat die er niet raar uitziet op kleinere devices*/
+    margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    outline: none;
+}
+/*-------------------------*/
+
+/*OPENWEATHER API*/
+input, label{
+    display: block; /*in een blok moet zetten zodat deze mooi boven elkaar kwamen te staan en ook netjes in het midden*/
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#weatherstatus{
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+}
+
+label{
+    padding-bottom: 5px;
+    padding-top: 5px;
+    font-weight: bold; /*lettertype dikker gemaakt*/
+    margin-top: 10px;
+}
+
+#place{
+    margin-top: 5px;
+    border-radius: 100px;
+    border: rgba(255, 255, 255, 0.8);
+    width: 60%;
+    height: 50px;
+    font-weight: bold;
+    text-align: center;
+    outline: none; /*outline hier geplaatst zodat je geen rare rand ziet wanneer je erop klikt*/
+}
+
+#weatherupdate{
+    margin-top: 10px;
+    border-radius: 100px;
+    border: rgba(255, 255, 255, 0.8);
+    width: 60%;
+    height: 50px;
+    font-weight: bold;
+    outline: none;
+}
+
+#weatherupdate:hover{
+    background-color: #293133;
+    color: white;
+    transition: ease-in-out 1s; /*dat het niet hard van kleur veranderd maar meer geanimeerd lijkt*/
+    cursor: pointer; /*wanneer je met de muis over de button gaat, krijg je een handje te zien om aan te geven dat je erop kan drukken*/
+}
+/*-------------------------*/
+
+/*ANIMEQUOTE API*/
+#quote, #character, #anime{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 10px;
+}
+
+#quote{
+    font-style: italic; /*schuin*/
+}
+
+button{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 100px;
+    border: rgba(255, 255, 255, 0.8);
+    width: 40%;
+    height: 50px;
+    font-weight: bold;
+    outline: none;
+}
+
+button:hover{
+    background-color: #293133;
+    color: white;
+    transition: ease-in-out 1s;
+    cursor: pointer;
+}
+/*-------------------------*/
+
+/*MOBILE VIEW*/
+@media only screen and (min-width: 0px){
+    .container{
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 0.1fr 1fr 0.7fr 0.8fr;
+        grid-template-areas: 
+            "header"
+            "loc"
+            "weer"
+            "other"
+        ;
+    }
+    .whitelogo{
+        width: 70%; /*zodat die niet enorm klein lijkt op kleinere devices*/
+    }
+}
+
+/*TABLET VIEW*/
+@media only screen and (min-width: 768px){
+    .container{
+        display: grid;
+        grid-template-columns: 1fr 0.9fr 0.9fr 1fr;
+        grid-template-rows: 0.2fr 1fr 0.5fr;
+        grid-template-areas:
+            "header header header header"
+            "loc loc loc loc"
+            "weer weer other other"
+        ;
+    }
+    .other,.weather{
+        width: 60%; /*zodat deze mooi gelijnd is met de andere box*/
+    }
+    .whitelogo{
+        width: 60%;
+    }
+}
+
+/*DESKTOP VIEW*/
+@media only screen and (min-width: 1024px){
+    .container{
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: 0.4fr 1fr;
+        grid-template-areas:
+            "header header header header header header"
+            "loc loc weer weer other other"
+        ;
+    }
+    .other,.weather, .location{
+        width: 80%;
+        height: 100%;
+    }
+    .whitelogo{
+        width: 60%;
+    }
+}
+
